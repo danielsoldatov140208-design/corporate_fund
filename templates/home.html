@@ -1,0 +1,404 @@
+{% extends 'base.html' %}
+{% block title %}
+    Регион возможностей · гранты и партнёрство
+{% endblock %}
+{% block content %}
+    <section class="hero home-hero">
+        <div class="hero-gallery">
+            <div class="hero-slide slide-campus active">
+            </div>
+            <div class="hero-slide slide-lab">
+            </div>
+            <div class="hero-slide slide-students">
+            </div>
+        </div>
+        <div class="hero-shade">
+        </div>
+        <div class="hero-content">
+            <div class="eyebrow light">
+                <i>
+                </i>
+                <span data-t="homeKicker">
+                    ТАЛАНТУ НУЖЕН ШАНС
+                </span>
+            </div>
+            <h1 data-t="homeTitle">
+                Твоё образование.
+                <br>
+                Твоя точка старта.
+            </h1>
+            <p class="hero-lead" data-t="homeLead">
+                Открываем студентам путь к грантам и практике, а партнёрам — возможность вкладываться в будущее региона.
+            </p>
+            <div class="hero-links">
+                <a class="button button-light" href="{% url 'grants' %}">
+                    <span data-t="studentCta">
+                        Найти грантовую возможность
+                    </span>
+                    ↗
+                </a>
+                <a class="text-link light-link" href="{% url 'contact' %}">
+                    <span data-t="partnerCta">
+                        Стать партнёром
+                    </span>
+                    →
+                </a>
+            </div>
+        </div>
+        <div class="hero-bottom">
+            <span data-t="homeNote">
+                ОБРАЗОВАНИЕ · ВОЗМОЖНОСТИ · РЕГИОН
+            </span>
+            <span class="scroll-cue">
+                ↓
+                <span data-t="scroll">
+                    Листайте дальше
+                </span>
+            </span>
+            <span>
+                01 — 04
+            </span>
+        </div>
+        <div class="hero-vertical">
+            LEARN · BUILD · GROW
+        </div>
+        <div class="hero-gallery-controls">
+            <span class="gallery-caption" id="gallery-caption">
+                01 / LEARNING WITHOUT LIMITS
+            </span>
+            <div class="gallery-dots">
+                <button class="active" data-slide="0" aria-label="Фото 1">
+                </button>
+                <button data-slide="1" aria-label="Фото 2">
+                </button>
+                <button data-slide="2" aria-label="Фото 3">
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="audience section-wrap">
+        <div class="section-label">
+            <span data-t="audienceTag">
+                ДЛЯ ТЕХ, КТО МЕНЯЕТ БУДУЩЕЕ
+            </span>
+            <span class="label-line">
+            </span>
+        </div>
+        <div class="audience-grid">
+            <a class="audience-card student-card" href="{% url 'grants' %}">
+                <span class="audience-index">
+                    01 / STUDENT PATH
+                </span>
+                <span class="audience-icon">
+                    ✳
+                </span>
+                <h2 data-t="studentTitle">
+                    Учись. Пробуй.
+                    <br>
+                    Получай поддержку.
+                </h2>
+                <p data-t="studentText">
+                    Грантовые возможности, понятные условия и шаги подачи — собрали в одном месте.
+                </p>
+                <span class="audience-link" data-t="studentLink">
+                    К грантам
+                    <b>
+                        ↗
+                    </b>
+                </span>
+            </a>
+            <a class="audience-card partner-card" href="{% url 'contact' %}">
+                <span class="audience-index">
+                    02 / PARTNER PATH
+                </span>
+                <span class="audience-icon">
+                    ↗
+                </span>
+                <h2 data-t="investorTitle">
+                    Вкладывайте
+                    <br>
+                    в потенциал региона.
+                </h2>
+                <p data-t="investorText">
+                    Объединяйте усилия с фондом, образовательными учреждениями и будущими специалистами.
+                </p>
+                <span class="audience-link" data-t="investorLink">
+                    Возможности партнёрства
+                    <b>
+                        ↗
+                    </b>
+                </span>
+            </a>
+        </div>
+    </section>
+    <section class="mission section-wrap">
+        <div class="section-label">
+            <span data-t="missionTag">
+                НАША МИССИЯ
+            </span>
+            <span class="label-line">
+            </span>
+        </div>
+        <div class="mission-grid">
+            <h2 data-t="mission">
+                Создаём среду, в которой образование становится точкой роста для всего региона.
+            </h2>
+            <div class="mission-aside">
+                <p data-t="missionText">
+                    Фонд развивает современную образовательную и производственную инфраструктуру, поддерживает навыки будущего и соединяет студентов, учебные заведения и бизнес.
+                </p>
+                <a class="under-link" href="{% url 'about' %}">
+                    <span data-t="missionLink">
+                        Как работает фонд
+                    </span>
+                    ↗
+                </a>
+                <div class="mission-number">
+                    <b>
+                        01
+                    </b>
+                    <span data-t="years">
+                        общая цель
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="focus section-wrap">
+        <div class="section-label">
+            <span data-t="pillarsTag">
+                ЧТО МЫ ДЕЛАЕМ
+            </span>
+            <span class="label-line">
+            </span>
+        </div>
+        <div class="heading-row">
+            <h2 data-t="pillarsTitle">
+                Поддержка, которая соединяет обучение и дело
+            </h2>
+            <p data-t="pillarsLead">
+                От первых учебных возможностей до проектов, меняющих региональную экономику.
+            </p>
+        </div>
+        <div class="focus-grid">
+            <article class="focus-card">
+                <div class="card-top">
+                    <span>
+                        01
+                    </span>
+                    <b>
+                        ✳
+                    </b>
+                </div>
+                <h3 data-t="area0">
+                    Гранты и развитие студентов
+                </h3>
+                <p data-t="areaText0">
+                    Путь к возможностям и практическим навыкам.
+                </p>
+                <a href="{% url 'grants' %}">
+                    ↗
+                </a>
+            </article>
+            <article class="focus-card">
+                <div class="card-top">
+                    <span>
+                        02
+                    </span>
+                    <b>
+                        ⌂
+                    </b>
+                </div>
+                <h3 data-t="area1">
+                    Современная среда обучения
+                </h3>
+                <p data-t="areaText1">
+                    Инфраструктура, в которой хочется создавать.
+                </p>
+                <a href="{% url 'projects' %}">
+                    ↗
+                </a>
+            </article>
+            <article class="focus-card">
+                <div class="card-top">
+                    <span>
+                        03
+                    </span>
+                    <b>
+                        ↗
+                    </b>
+                </div>
+                <h3 data-t="area2">
+                    Партнёрства и проекты
+                </h3>
+                <p data-t="areaText2">
+                    Совместная работа бизнеса и образования.
+                </p>
+                <a href="{% url 'projects' %}">
+                    ↗
+                </a>
+            </article>
+        </div>
+    </section>
+    <section class="impact">
+        <div class="impact-bg">
+        </div>
+        <div class="impact-inner">
+            <div class="eyebrow light">
+                <i>
+                </i>
+                <span data-t="open">
+                    ОТКРЫТЫ К СОТРУДНИЧЕСТВУ
+                </span>
+            </div>
+            <div class="impact-row">
+                <h2 data-t="impact">
+                    Будущее создаётся вместе.
+                </h2>
+                <div>
+                    <p data-t="impactText">
+                        Ищем партнёров, которые готовы поддерживать образовательные инициативы и раскрывать потенциал нового поколения.
+                    </p>
+                    <a class="button button-light" href="{% url 'contact' %}">
+                        <span data-t="partnerCta">
+                            Обсудить партнёрство
+                        </span>
+                        ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="news section-wrap">
+        <div class="section-label">
+            <span data-t="newsTag">
+                ИЗ ЛАБОРАТОРИИ ИДЕЙ
+            </span>
+            <span class="label-line">
+            </span>
+        </div>
+        <div class="heading-row">
+            <div>
+                <h2 data-t="newsTitle">
+                    Новости и возможности
+                </h2>
+                <p data-t="newsText">
+                    Материалы фонда и полезная информация студентам.
+                </p>
+            </div>
+            <a class="under-link" href="{% url 'news' %}">
+                <span data-t="newsMore">
+                    Все материалы
+                </span>
+                ↗
+            </a>
+        </div>
+        <div class="news-grid">
+            <article class="news-card">
+                <div class="news-art">
+                    <span>
+                        OPPORTUNITY / 01
+                    </span>
+                    <b>
+                        ✳
+                    </b>
+                </div>
+                <div class="news-meta">
+                    <span data-t="demoLabel">
+                        ДЕМО-МАТЕРИАЛ
+                    </span>
+                    <span>
+                        01
+                    </span>
+                </div>
+                <h3 data-t="news0">
+                    Как подготовиться к подаче на грант
+                </h3>
+                <a href="{% url 'grants' %}">
+                    <span data-t="read">
+                        Открыть
+                    </span>
+                    ↗
+                </a>
+            </article>
+            <article class="news-card">
+                <div class="news-art art-1">
+                    <span>
+                        INSIGHT / 02
+                    </span>
+                    <b>
+                        ⌘
+                    </b>
+                </div>
+                <div class="news-meta">
+                    <span data-t="demoLabel">
+                        ДЕМО-МАТЕРИАЛ
+                    </span>
+                    <span>
+                        02
+                    </span>
+                </div>
+                <h3 data-t="news1">
+                    Зачем образованию партнёрство с индустрией
+                </h3>
+                <a href="{% url 'news' %}">
+                    <span data-t="read">
+                        Подробнее
+                    </span>
+                    ↗
+                </a>
+            </article>
+            <article class="news-card">
+                <div class="news-art art-2">
+                    <span>
+                        PROJECT / 03
+                    </span>
+                    <b>
+                        ↗
+                    </b>
+                </div>
+                <div class="news-meta">
+                    <span data-t="demoLabel">
+                        ДЕМО-МАТЕРИАЛ
+                    </span>
+                    <span>
+                        03
+                    </span>
+                </div>
+                <h3 data-t="news2">
+                    Новые пространства для обучения и практики
+                </h3>
+                <a href="{% url 'projects' %}">
+                    <span data-t="read">
+                        Подробнее
+                    </span>
+                    ↗
+                </a>
+            </article>
+        </div>
+    </section>
+    <section class="photo-story">
+        <div class="photo-story-image">
+        </div>
+        <div class="photo-story-copy">
+            <span class="section-kicker" data-t="storyKicker">
+                ИДЕИ СТАНОВЯТСЯ ВОЗМОЖНОСТЯМИ
+            </span>
+            <h2 data-t="storyTitle">
+                Среда, где можно попробовать больше.
+            </h2>
+            <p data-t="storyText">
+                Грант — это не только поддержка. Это пространство для обучения, практики и смелых первых шагов.
+            </p>
+            <a class="under-link" href="{% url 'grants' %}">
+                <span data-t="storyLink">
+                    Посмотреть путь к гранту
+                </span>
+                ↗
+            </a>
+            <span class="story-index">
+                REGION / 01
+            </span>
+        </div>
+    </section>
+{% endblock %}

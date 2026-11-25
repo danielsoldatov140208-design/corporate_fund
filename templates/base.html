@@ -1,0 +1,189 @@
+{% load static %}
+<!doctype html>
+<html lang="ru" data-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="theme-color" content="#f7f6f5">
+        <meta name="description" content="Ð¤Ð¾Ð½Ð´ Ñ€Ð°Ð·Ð²Ð¸Ñ‚Ð¸Ñ Ñ€ÐµÐ³Ð¸Ð¾Ð½Ð°: Ð¾Ð±Ñ€Ð°Ð·Ð¾Ð²Ð°Ð½Ð¸Ðµ, Ð³Ñ€Ð°Ð½Ñ‚Ñ‹ Ð´Ð»Ñ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð², Ð¿Ñ€Ð¾ÐµÐºÑ‚Ñ‹ Ð¸ Ð¿Ð°Ñ€Ñ‚Ð½Ñ‘Ñ€ÑÑ‚Ð²Ð¾">
+        <title>
+            {% block title %}
+                Ð ÐµÐ³Ð¸Ð¾Ð½ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚ÐµÐ¹
+            {% endblock %}
+            Â· Ð¤Ð¾Ð½Ð´ Ñ€Ð°Ð·Ð²Ð¸Ñ‚Ð¸Ñ Ñ€ÐµÐ³Ð¸Ð¾Ð½Ð°
+        </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'site.css' %}?v=10">
+        <script defer src="{% static 'site.js' %}?v=10">
+        </script>
+    </head>
+    <body>
+        <a class="skip-link" href="#content" data-t="skip">
+            Ðš ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ð¼Ð¾Ð¼Ñƒ
+        </a>
+        <header class="header">
+            <a href="{% url 'home' %}" class="brand">
+                <span class="brand-mark">
+                    <i>
+                    </i>
+                    <i>
+                    </i>
+                    <i>
+                    </i>
+                    <i>
+                    </i>
+                </span>
+                <span class="brand-name">
+                    REGION
+                    <br>
+                    FORWARD
+                </span>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="{% url 'about' %}" data-t="nav0">
+                    Ðž Ñ„Ð¾Ð½Ð´Ðµ
+                </a>
+                <a href="{% url 'grants' %}" data-t="nav1">
+                    Ð“Ñ€Ð°Ð½Ñ‚Ñ‹ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð°Ð¼
+                </a>
+                <a href="{% url 'projects' %}" data-t="nav2">
+                    ÐŸÑ€Ð¾ÐµÐºÑ‚Ñ‹
+                </a>
+                <a href="{% url 'forums' %}" data-t="nav3">
+                    Ð¤Ð¾Ñ€ÑƒÐ¼Ñ‹
+                </a>
+                <a href="{% url 'partners' %}" data-t="nav4">
+                    ÐŸÐ°Ñ€Ñ‚Ð½Ñ‘Ñ€Ñ‹
+                </a>
+                <a href="{% url 'documents' %}" data-t="nav5">
+                    Ð”Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ñ‹
+                </a>
+            </nav>
+            <div class="header-actions">
+                <div class="languages">
+                    <button data-lang="kk">
+                        KZ
+                    </button>
+                    <button data-lang="ru">
+                        RU
+                    </button>
+                    <button data-lang="en">
+                        EN
+                    </button>
+                </div>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ‚ÐµÐ¼Ñƒ" aria-pressed="false" title="Ð¡Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ñ‚ÐµÐ¼Ñƒ">
+                    <span class="theme-icon">
+                        â—
+                    </span>
+                    <span data-t="theme">
+                        Ð¢ÐµÐ¼Ð°
+                    </span>
+                </button>
+                <a class="header-contact" href="{% url 'contact' %}">
+                    <span data-t="contact">
+                        ÐšÐ¾Ð½Ñ‚Ð°ÐºÑ‚Ñ‹
+                    </span>
+                    â†—
+                </a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="ÐœÐµÐ½ÑŽ">
+                    â˜°
+                </button>
+            </div>
+        </header>
+        <main id="content" class="page-shell page-{{ page_slug }}">
+            {% block content %}
+            {% endblock %}
+        </main>
+        <footer id="contacts">
+            <div class="footer-main">
+                <div class="footer-about">
+                    <a href="{% url 'home' %}" class="brand footer-brand">
+                        <span class="brand-mark">
+                            <i>
+                            </i>
+                            <i>
+                            </i>
+                            <i>
+                            </i>
+                            <i>
+                            </i>
+                        </span>
+                        <span class="brand-name">
+                            REGION
+                            <br>
+                            FORWARD
+                        </span>
+                    </a>
+                    <p data-t="footerAbout">
+                        Ð˜Ð½Ð²ÐµÑÑ‚Ð¸Ñ€ÑƒÐµÐ¼ Ð² Ð·Ð½Ð°Ð½Ð¸Ñ, Ð¸Ð½Ñ„Ñ€Ð°ÑÑ‚Ñ€ÑƒÐºÑ‚ÑƒÑ€Ñƒ Ð¸ Ð¿Ð¾Ñ‚ÐµÐ½Ñ†Ð¸Ð°Ð» Ð»ÑŽÐ´ÐµÐ¹.
+                    </p>
+                    <a class="footer-student-link" href="{% url 'grants' %}" data-t="footerGrants">
+                        Ð’Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸ Ð´Ð»Ñ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð¾Ð² â†—
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <span data-t="footerNav">
+                        Ð ÐÐ—Ð”Ð•Ð›Ð«
+                    </span>
+                    <a href="{% url 'about' %}" data-t="nav0">
+                        Ðž Ñ„Ð¾Ð½Ð´Ðµ
+                    </a>
+                    <a href="{% url 'grants' %}" data-t="nav1">
+                        Ð“Ñ€Ð°Ð½Ñ‚Ñ‹ ÑÑ‚ÑƒÐ´ÐµÐ½Ñ‚Ð°Ð¼
+                    </a>
+                    <a href="{% url 'projects' %}" data-t="nav2">
+                        ÐŸÑ€Ð¾ÐµÐºÑ‚Ñ‹
+                    </a>
+                    <a href="{% url 'forums' %}" data-t="nav3">
+                        Ð¤Ð¾Ñ€ÑƒÐ¼Ñ‹
+                    </a>
+                    <a href="{% url 'partners' %}" data-t="nav4">
+                        ÐŸÐ°Ñ€Ñ‚Ð½Ñ‘Ñ€Ñ‹
+                    </a>
+                    <a href="{% url 'documents' %}" data-t="nav5">
+                        Ð”Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ñ‹
+                    </a>
+                    <a href="{% url 'news' %}" data-t="navNews">
+                        ÐÐ¾Ð²Ð¾ÑÑ‚Ð¸
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <span data-t="footerContacts">
+                        ÐšÐžÐÐ¢ÐÐšÐ¢Ð«
+                    </span>
+                    <p>
+                        âŒ–
+                        <span data-t="address">
+                            Ð ÐµÑÐ¿ÑƒÐ±Ð»Ð¸ÐºÐ° ÐšÐ°Ð·Ð°Ñ…ÑÑ‚Ð°Ð½ Â· Ð°Ð´Ñ€ÐµÑ ÑƒÑ‚Ð¾Ñ‡Ð½ÑÐµÑ‚ÑÑ
+                        </span>
+                    </p>
+                    <p>
+                        âœ‰
+                        <span data-t="email">
+                            Ð­Ð»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ð°Ñ Ð¿Ð¾Ñ‡Ñ‚Ð° ÑƒÑ‚Ð¾Ñ‡Ð½ÑÐµÑ‚ÑÑ
+                        </span>
+                    </p>
+                    <p>
+                        â˜Ž
+                        <span data-t="phone">
+                            Ð¢ÐµÐ»ÐµÑ„Ð¾Ð½ ÑƒÑ‚Ð¾Ñ‡Ð½ÑÐµÑ‚ÑÑ
+                        </span>
+                    </p>
+                </div>
+                <div class="footer-stamp" data-t="org">
+                    ÐšÐžÐ ÐŸÐžÐ ÐÐ¢Ð˜Ð’ÐÐ«Ð™ Ð¤ÐžÐÐ” Ð ÐÐ—Ð’Ð˜Ð¢Ð˜Ð¯ Ð Ð•Ð“Ð˜ÐžÐÐÐ›Ð¬ÐÐžÐ“Ðž ÐžÐ‘Ð ÐÐ—ÐžÐ’ÐÐ¢Ð•Ð›Ð¬ÐÐž-ÐŸÐ ÐžÐ˜Ð—Ð’ÐžÐ”Ð¡Ð¢Ð’Ð•ÐÐÐžÐ“Ðž ÐšÐ›ÐÐ¡Ð¢Ð•Ð Ð
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span data-t="rights">
+                    Â© 2025 ÐšÐ¾Ñ€Ð¿Ð¾Ñ€Ð°Ñ‚Ð¸Ð²Ð½Ñ‹Ð¹ Ñ„Ð¾Ð½Ð´ Ñ€Ð°Ð·Ð²Ð¸Ñ‚Ð¸Ñ Ñ€ÐµÐ³Ð¸Ð¾Ð½Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ Ð¾Ð±Ñ€Ð°Ð·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾-Ð¿Ñ€Ð¾Ð¸Ð·Ð²Ð¾Ð´ÑÑ‚Ð²ÐµÐ½Ð½Ð¾Ð³Ð¾ ÐºÐ»Ð°ÑÑ‚ÐµÑ€Ð°
+                </span>
+                <span data-t="legal">
+                    Ð”ÐµÐ¼Ð¾Ð½ÑÑ‚Ñ€Ð°Ñ†Ð¸Ð¾Ð½Ð½Ñ‹Ð¹ ÑÐ°Ð¹Ñ‚ Â· Ð´Ð°Ð½Ð½Ñ‹Ðµ ÑƒÑ‚Ð¾Ñ‡Ð½ÑÑŽÑ‚ÑÑ
+                </span>
+            </div>
+        </footer>
+    </body>
+</html>
