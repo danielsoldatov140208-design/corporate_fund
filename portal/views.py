@@ -1,4 +1,5 @@
 ﻿from django.shortcuts import render
+from django.http import JsonResponse
 
 PAGES = {
     'about': 'О фонде',
@@ -59,3 +60,6 @@ def news(request):
 
 def contact(request):
     return page(request, 'contact')
+
+def health(request):
+    return JsonResponse({"status":"ok"})
