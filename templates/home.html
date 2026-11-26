@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 {% block title %}
-    Регион возможностей · гранты и партнёрство
+    Корпоративный фонд развития кластера инновационных технологий
 {% endblock %}
 {% block content %}
+    <section class="home-news-ticker" aria-label="Лента новостей">
+        <div class="home-news-heading"><span>НОВОСТИ КЛАСТЕРА</span><a href="{% url 'news' %}">Все новости ↗</a></div>
+        <div class="home-news-track">
+            <a href="{% url 'news' %}#news-students"><time>01</time> Возможности и программы для студентов <b>Подробнее ↗</b></a>
+            <a href="{% url 'news' %}#news-projects"><time>02</time> Проекты на стыке образования и индустрии <b>Подробнее ↗</b></a>
+            <a href="{% url 'news' %}#news-events"><time>03</time> Анонсы встреч и событий <b>Подробнее ↗</b></a>
+            <a href="{% url 'news' %}#news-students" aria-hidden="true" tabindex="-1"><time>01</time> Возможности и программы для студентов <b>Подробнее ↗</b></a>
+            <a href="{% url 'news' %}#news-projects" aria-hidden="true" tabindex="-1"><time>02</time> Проекты на стыке образования и индустрии <b>Подробнее ↗</b></a>
+            <a href="{% url 'news' %}#news-events" aria-hidden="true" tabindex="-1"><time>03</time> Анонсы встреч и событий <b>Подробнее ↗</b></a>
+        </div>
+    </section>
     <section class="hero home-hero">
         <div class="hero-gallery">
             <div class="hero-slide slide-campus active">
@@ -18,28 +29,26 @@
             <div class="eyebrow light">
                 <i>
                 </i>
-                <span data-t="homeKicker">
-                    ТАЛАНТУ НУЖЕН ШАНС
+                <span>
+                    КОРПОРАТИВНЫЙ ФОНД
                 </span>
             </div>
-            <h1 data-t="homeTitle">
-                Твоё образование.
-                <br>
-                Твоя точка старта.
+            <h1 class="foundation-title" data-t="orgShort">
+                Корпоративный фонд развития регионального образовательно-производственного кластера инновационных технологий
             </h1>
-            <p class="hero-lead" data-t="homeLead">
-                Открываем студентам путь к грантам и практике, а партнёрам — возможность вкладываться в будущее региона.
+            <p class="hero-lead">
+                Поддерживаем развитие кластера, образовательные возможности и проекты для региона.
             </p>
             <div class="hero-links">
-                <a class="button button-light" href="{% url 'grants' %}">
-                    <span data-t="studentCta">
-                        Найти грантовую возможность
+                <a class="button button-light" href="{% url 'about' %}">
+                    <span>
+                        О фонде
                     </span>
                     ↗
                 </a>
-                <a class="text-link light-link" href="{% url 'contact' %}">
-                    <span data-t="partnerCta">
-                        Стать партнёром
+                <a class="text-link light-link" href="{% url 'partners' %}">
+                    <span>
+                        Сотрудничество
                     </span>
                     →
                 </a>
@@ -76,6 +85,13 @@
             </div>
         </div>
     </section>
+    <section class="cluster-overview section-wrap" id="cluster">
+        <div class="section-label"><span>ОБРАЗОВАТЕЛЬНО-ПРОИЗВОДСТВЕННЫЙ КЛАСТЕР</span><span class="label-line"></span></div>
+        <div class="cluster-overview-grid">
+            <h1>Кластер инновационных технологий</h1>
+            <p>Объединяем образование, науку и производство, чтобы готовить специалистов и создавать решения для развития региона. Здесь формируется среда для обучения, практики и совместных проектов.</p>
+        </div>
+    </section>
     <section class="audience section-wrap">
         <div class="section-label">
             <span data-t="audienceTag">
@@ -107,23 +123,23 @@
                     </b>
                 </span>
             </a>
-            <a class="audience-card partner-card" href="{% url 'contact' %}">
+            <a class="audience-card partner-card" href="{% url 'projects' %}">
                 <span class="audience-index">
-                    02 / PARTNER PATH
+                    02 / CLUSTER PATH
                 </span>
                 <span class="audience-icon">
                     ↗
                 </span>
-                <h2 data-t="investorTitle">
-                    Вкладывайте
+                <h2>
+                    Развивайте
                     <br>
-                    в потенциал региона.
+                    проекты кластера.
                 </h2>
-                <p data-t="investorText">
-                    Объединяйте усилия с фондом, образовательными учреждениями и будущими специалистами.
+                <p>
+                    Идеи, образование и практические решения для инновационного развития региона.
                 </p>
-                <span class="audience-link" data-t="investorLink">
-                    Возможности партнёрства
+                <span class="audience-link">
+                    Проекты кластера
                     <b>
                         ↗
                     </b>
@@ -397,8 +413,14 @@
                 ↗
             </a>
             <span class="story-index">
-                REGION / 01
+                КЛАСТЕР / 01
             </span>
+        </div>
+    </section>
+    <section class="partner-logo-ribbon" aria-label="Логотипы участников и партнёров кластера">
+        <div class="partner-logo-track" aria-hidden="true">
+            <span class="logo-mark logo-mark-one">ИТ</span><span class="logo-mark logo-mark-two">К</span><span class="logo-mark logo-mark-three">◈</span><span class="logo-mark logo-mark-four">ТЕХ</span><span class="logo-mark logo-mark-five">✳</span>
+            <span class="logo-mark logo-mark-one">ИТ</span><span class="logo-mark logo-mark-two">К</span><span class="logo-mark logo-mark-three">◈</span><span class="logo-mark logo-mark-four">ТЕХ</span><span class="logo-mark logo-mark-five">✳</span>
         </div>
     </section>
 {% endblock %}

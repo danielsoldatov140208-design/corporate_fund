@@ -341,7 +341,7 @@
                 </p>
             </div>
             <div class="editorial-list">
-                <article class="editorial-item">
+                <article class="editorial-item" id="news-students">
                     <div class="editorial-photo editorial-student">
                     </div>
                     <div class="editorial-copy">
@@ -365,7 +365,7 @@
                         01
                     </b>
                 </article>
-                <article class="editorial-item">
+                <article class="editorial-item" id="news-projects">
                     <div class="editorial-photo editorial-project">
                     </div>
                     <div class="editorial-copy">
@@ -389,7 +389,7 @@
                         02
                     </b>
                 </article>
-                <article class="editorial-item">
+                <article class="editorial-item" id="news-events">
                     <div class="editorial-photo editorial-events">
                     </div>
                     <div class="editorial-copy">
@@ -594,6 +594,12 @@
                         ↗
                     </a>
                 </div>
+            </div>
+        {% elif slug == 'trustees' %}
+            <div class="news-page-intro">
+                <span class="section-kicker">УПРАВЛЕНИЕ ФОНДОМ</span>
+                <h2>Попечительский совет</h2>
+                <p>Информация о составе и деятельности попечительского совета будет опубликована после официального подтверждения.</p>
             </div>
         {% else %}
             <div class="contact-page-grid">

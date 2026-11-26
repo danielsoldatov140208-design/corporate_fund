@@ -5,7 +5,8 @@ PAGES = {
     'grants': 'Гранты студентам',
     'projects': 'Проекты',
     'forums': 'Форумы и события',
-    'partners': 'Партнёры',
+    'partners': 'Сотрудничество',
+    'trustees': 'Попечительский совет',
     'documents': 'Документы',
     'news': 'Новости',
     'contact': 'Контакты',
@@ -47,6 +48,10 @@ def forums(request):
 
 def partners(request):
     return page(request, 'partners')
+
+
+def trustees(request):
+    return page(request, 'trustees')
 
 
 def documents(request):
