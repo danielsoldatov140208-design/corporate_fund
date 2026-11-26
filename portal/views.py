@@ -1,5 +1,6 @@
 ﻿from django.shortcuts import render
 from django.http import JsonResponse
+from portal.models import News
 
 PAGES = {
     'about': 'О фонде',
@@ -18,17 +19,16 @@ def home(request):
     return render(request, 'home.html', {'page_slug': 'home'})
 
 
-def page(request, slug):
-    return render(
-        request,
-        'page.html',
-        {
+def page(request, slug, extra_context=None):
+    context = {
             'slug': slug,
             'page_name': PAGES[slug],
             'page_slug': slug,
             'page_number': str(list(PAGES).index(slug) + 1).zfill(2),
-        },
-    )
+            }
+    if extra_context:
+        context.update(extra_context)
+    return render(request,'page.html', context)
 
 
 def about(request):
@@ -60,7 +60,8 @@ def documents(request):
 
 
 def news(request):
-    return page(request, 'news')
+    articles = News.objects.filter(is_published=True)
+    return page(request, 'news',{"articles":articles})
 
 
 def contact(request):
