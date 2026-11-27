@@ -6,11 +6,15 @@
 <div class="editorial-list">
     {% for article in articles %}
         <a class="editorial-item editorial-item-link" href="{% url 'news_detail' article.pk %}">
-            <span class="editorial-photo editorial-project" aria-hidden="true"></span>
+            {% if article.image %}
+                <img class="editorial-photo editorial-photo-image" src="{{ article.image.url }}" alt="">
+            {% else %}
+                <span class="editorial-photo editorial-project" aria-hidden="true"></span>
+            {% endif %}
             <div class="editorial-copy">
                 <time datetime="{{ article.created_at|date:'c' }}">{{ article.created_at|date:'d.m.Y' }}</time>
                 <h3>{{ article.title }}</h3>
-                <p>{{ article.content|striptags|truncatewords:35 }}</p>
+                <p>{{ article.short_description }}</p>
                 <span data-t="newsRead">Read more</span>
             </div>
         </a>

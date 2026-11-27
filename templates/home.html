@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% block title %}
     Корпоративный фонд развития кластера инновационных технологий
 {% endblock %}
@@ -101,22 +101,30 @@
         <div class="home-news-track">
             {% for article in latest_news %}
                 <a class="home-news-card" href="{% url 'news_detail' article.pk %}">
-                    <span class="home-news-image editorial-project" aria-hidden="true"></span>
+                    {% if article.image %}
+                        <img class="home-news-image" src="{{ article.image.url }}" alt="">
+                    {% else %}
+                        <span class="home-news-image editorial-project" aria-hidden="true"></span>
+                    {% endif %}
                     <span class="home-news-copy">
                         <time>{{ article.created_at|date:'d.m.Y' }}</time>
                         <strong>{{ article.title }}</strong>
-                        <span>{{ article.content|striptags|truncatewords:18 }}</span>
+                        <span>{{ article.short_description }}</span>
                         <b data-t="newsRead">Read more</b>
                     </span>
                </a>
             {% endfor %}
             {% for article in latest_news %}
                 <a class="home-news-card" href="{% url 'news_detail' article.pk %}" aria-hidden="true" tabindex="-1">
-                    <span class="home-news-image editorial-project"></span>
+                    {% if article.image %}
+                        <img class="home-news-image" src="{{ article.image.url }}" alt="">
+                    {% else %}
+                        <span class="home-news-image editorial-project"></span>
+                    {% endif %}
                     <span class="home-news-copy">
                         <time>{{ article.created_at|date:'d.m.Y' }}</time>
                         <strong>{{ article.title }}</strong>
-                        <span>{{ article.content|striptags|truncatewords:18 }}</span>
+                        <span>{{ article.short_description }}</span>
                         <b data-t="newsRead">Read more</b>
                     </span>
                </a>

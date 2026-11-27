@@ -10,6 +10,9 @@
             <span>{{ article.title }}</span>
         </nav>
         <article class="news-detail-article">
+            {% if article.image %}
+                <img class="news-detail-image" src="{{ article.image.url }}" alt="">
+            {% endif %}
             <time datetime="{{ article.created_at|date:'c' }}">{{ article.created_at|date:'d.m.Y' }}</time>
             <h1>{{ article.title }}</h1>
             <div class="news-detail-content">{{ article.content|linebreaks }}</div>
