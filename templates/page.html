@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% block title %}
-    {{ page_name }}
+    {% if request.GET.section == 'cluster' %}Кластер инновационных технологий{% else %}{{ page_name }}{% endif %}
 {% endblock %}
 {% block content %}
-    <section class="page-hero page-{{ slug }}">
+    <section class="page-hero page-{% if request.GET.section == 'cluster' %}cluster{% else %}{{ slug }}{% endif %}">
         <div class="page-hero-art">
         </div>
         <div class="page-hero-inner">
             <div class="eyebrow">
                 <i>
                 </i>
-                <span data-t="{{ slug }}Kicker">
+                <span data-t="{% if request.GET.section == 'cluster' %}clusterKicker{% else %}{{ slug }}Kicker{% endif %}">
                     РЕГИОН ВОЗМОЖНОСТЕЙ
                 </span>
             </div>
-            <h1 data-t="{{ slug }}Title">
-                {{ page_name }}
+            <h1 data-t="{% if request.GET.section == 'cluster' %}clusterTitle{% else %}{{ slug }}Title{% endif %}">
+                {% if request.GET.section == 'cluster' %}Кластер инновационных технологий{% else %}{{ page_name }}{% endif %}
             </h1>
-            <p data-t="{{ slug }}Lead">
+            <p data-t="{% if request.GET.section == 'cluster' %}clusterLead{% else %}{{ slug }}Lead{% endif %}">
                 Узнайте больше о возможностях фонда.
             </p>
             <div class="breadcrumbs">
@@ -27,32 +27,17 @@
                 <span>
                     /
                 </span>
-                <span data-t="{{ slug }}Short">
-                    {{ page_name }}
+                <span data-t="{% if request.GET.section == 'cluster' %}clusterShort{% else %}{{ slug }}Short{% endif %}">
+                    {% if request.GET.section == 'cluster' %}Кластер{% else %}{{ page_name }}{% endif %}
                 </span>
             </div>
         </div>
-        <span class="page-number">
-            {{ page_number }}
-        </span>
     </section>
     <section class="page-body section-wrap">
-        {% include 'pages/'|add:slug|add:'.html' %}
-        <div class="page-callout">
-            <div>
-                <span class="section-kicker" data-t="calloutLabel">
-                    ДАЛЬШЕ — ВМЕСТЕ
-                </span>
-                <h2 data-t="calloutTitle">
-                    Давайте обсудим возможности.
-                </h2>
-            </div>
-            <a href="{% url 'contact' %}" class="button button-dark">
-                <span data-t="calloutCta">
-                    Связаться с фондом
-                </span>
-                ↗
-            </a>
-        </div>
-    </section>
+        {% if request.GET.section == 'cluster' %}
+            {% include 'pages/cluster.html' %}
+        {% else %}
+            {% include 'pages/'|add:slug|add:'.html' %}
+        {% endif %}
+            </section>
 {% endblock %}

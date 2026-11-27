@@ -13,7 +13,7 @@
             <time datetime="{{ article.created_at|date:'c' }}">{{ article.created_at|date:'d.m.Y' }}</time>
             <h1>{{ article.title }}</h1>
             <div class="news-detail-content">{{ article.content|linebreaks }}</div>
-            <a class="under-link" href="{% url 'news' %}"><span data-t="navNews">Back to news</span> &#8599;</a>
+            <a class="under-link" href="{% url 'news' %}"><span data-t="navNews">Back to news</span> </a>
         </article>
     </section>
 {% endblock %}
