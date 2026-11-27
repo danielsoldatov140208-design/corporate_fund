@@ -15,8 +15,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'site.css' %}?v=14">
-        <script defer src="{% static 'site.js' %}?v=14">
+        <link rel="stylesheet" href="{% static 'site.css' %}?v=17">
+        <script defer src="{% static 'site.js' %}?v=17">
         </script>
     </head>
     <body>
@@ -45,6 +45,12 @@
                 </a>
                 <a href="{% url 'projects' %}" data-t="nav2">
                     &#1055;&#1088;&#1086;&#1077;&#1082;&#1090;&#1099;
+                </a>
+                <a href="{% url 'news' %}" data-t="navNews">
+                    &#1053;&#1086;&#1074;&#1086;&#1089;&#1090;&#1080;
+                </a>
+                <a href="{% url 'courses' %}" data-t="navCourses">
+                    &#1050;&#1091;&#1088;&#1089;&#1099;
                 </a>
                 <a href="{% url 'forums' %}" data-t="nav3">
                     &#1060;&#1086;&#1088;&#1091;&#1084;&#1099;
@@ -128,6 +134,7 @@
                     <a href="{% url 'projects' %}" data-t="nav2">
                         &#1055;&#1088;&#1086;&#1077;&#1082;&#1090;&#1099;
                     </a>
+                    <a href="{% url 'courses' %}" data-t="navCourses">&#1050;&#1091;&#1088;&#1089;&#1099;</a>
                     <a href="{% url 'forums' %}" data-t="nav3">
                         &#1060;&#1086;&#1088;&#1091;&#1084;&#1099;
                     </a>

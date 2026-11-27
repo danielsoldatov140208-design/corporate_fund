@@ -1,0 +1,20 @@
+﻿<div class="news-page-intro">
+    <span class="section-kicker" data-t="newsEyebrow">FUND UPDATES</span>
+    <h2 data-t="newsStatement">Useful information should be easy to find.</h2>
+    <p data-t="newsBody">Here you can find the latest news and updates from the fund.</p>
+</div>
+<div class="editorial-list">
+    {% for article in articles %}
+        <a class="editorial-item editorial-item-link" href="{% url 'news_detail' article.pk %}">
+            <span class="editorial-photo editorial-project" aria-hidden="true"></span>
+            <div class="editorial-copy">
+                <time datetime="{{ article.created_at|date:'c' }}">{{ article.created_at|date:'d.m.Y' }}</time>
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.content|striptags|truncatewords:35 }}</p>
+                <span data-t="newsRead">Read more</span>
+            </div>
+        </a>
+    {% empty %}
+        <p class="news-empty" data-t="newsEmpty">&#1054;&#1087;&#1091;&#1073;&#1083;&#1080;&#1082;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1093; &#1085;&#1086;&#1074;&#1086;&#1089;&#1090;&#1077;&#1081; &#1087;&#1086;&#1082;&#1072; &#1085;&#1077;&#1090;.</p>
+    {% endfor %}
+</div>
