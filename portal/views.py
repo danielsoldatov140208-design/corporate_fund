@@ -1,6 +1,6 @@
 ﻿from django.shortcuts import get_object_or_404, render
 from django.http import JsonResponse
-from portal.models import News
+from portal.models import News,Document
 
 PAGES = {
     'about': 'О фонде',
@@ -53,7 +53,7 @@ def forums(request):
     return page(request, 'forums')
 
 
-def partners(request):
+def partners(request,):
     return page(request, 'partners')
 
 
@@ -62,11 +62,12 @@ def trustees(request):
 
 
 def documents(request):
-    return page(request, 'documents')
+    documents = Document.objects.filter(is_published=True).order_by("-created_at")
+    return page(request, 'documents',{"documents":documents})
 
 
 def news(request):
-    articles = News.objects.filter(is_published=True).order_by('-created_at')
+    articles = News.objects.filter(is_published=True).order_by("-created_at")
     return page(request, 'news',{"articles":articles})
 
 
