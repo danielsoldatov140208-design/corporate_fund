@@ -2,6 +2,10 @@
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
+
+
 SECRET_KEY = 'demo-only-change-before-deployment'
 DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
