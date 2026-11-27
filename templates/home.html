@@ -3,17 +3,7 @@
     Корпоративный фонд развития кластера инновационных технологий
 {% endblock %}
 {% block content %}
-    <section class="home-news-ticker" aria-label="Лента новостей">
-        <div class="home-news-heading"><span>НОВОСТИ КЛАСТЕРА</span><a href="{% url 'news' %}">Все новости ↗</a></div>
-        <div class="home-news-track">
-            <a href="{% url 'news' %}#news-students"><time>01</time> Возможности и программы для студентов <b>Подробнее ↗</b></a>
-            <a href="{% url 'news' %}#news-projects"><time>02</time> Проекты на стыке образования и индустрии <b>Подробнее ↗</b></a>
-            <a href="{% url 'news' %}#news-events"><time>03</time> Анонсы встреч и событий <b>Подробнее ↗</b></a>
-            <a href="{% url 'news' %}#news-students" aria-hidden="true" tabindex="-1"><time>01</time> Возможности и программы для студентов <b>Подробнее ↗</b></a>
-            <a href="{% url 'news' %}#news-projects" aria-hidden="true" tabindex="-1"><time>02</time> Проекты на стыке образования и индустрии <b>Подробнее ↗</b></a>
-            <a href="{% url 'news' %}#news-events" aria-hidden="true" tabindex="-1"><time>03</time> Анонсы встреч и событий <b>Подробнее ↗</b></a>
-        </div>
-    </section>
+
     <section class="hero home-hero">
         <div class="hero-gallery">
             <div class="hero-slide slide-campus active">
@@ -85,6 +75,68 @@
             </div>
         </div>
     </section>
+    <section class="mission section-wrap">
+        <div class="section-label">
+            <span data-t="missionTag">
+                НАША МИССИЯ
+            </span>
+            <span class="label-line">
+            </span>
+        </div>
+        <div class="mission-grid">
+            <h2 data-t="mission">
+                Превратим регион в инвестиционный центр через инвестиции в инфраструктуру, современные навыки и международные стандарты обучения.
+            </h2>
+            <div class="mission-aside">
+                <p data-t="missionText">
+                    Фонд развивает современную образовательную и производственную инфраструктуру, поддерживает навыки будущего и соединяет студентов, учебные заведения и бизнес.
+                </p>
+                <a class="under-link" href="{% url 'about' %}">
+                    <span data-t="missionLink">
+                        Как работает фонд
+                    </span>
+                    ↗
+                </a>
+                <div class="mission-number">
+                    <b>
+                        01
+                    </b>
+                    <span data-t="years">
+                        общая цель
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="home-news-ticker" aria-label="Лента новостей">
+        <div class="home-news-heading"><span>НОВОСТИ КЛАСТЕРА</span><a href="{% url 'news' %}">Все новости ↗</a></div>
+        <div class="home-news-track">
+            {% for article in latest_news %}
+                <a class="home-news-card" href="{% url 'news_detail' article.pk %}">
+                    <span class="home-news-image editorial-project" aria-hidden="true"></span>
+                    <span class="home-news-copy">
+                        <time>{{ article.created_at|date:'d.m.Y' }}</time>
+                        <strong>{{ article.title }}</strong>
+                        <span>{{ article.content|striptags|truncatewords:18 }}</span>
+                        <b data-t="newsRead">Read more</b>
+                    </span>
+                </a>
+            {% endfor %}
+            {% for article in latest_news %}
+                <a class="home-news-card" href="{% url 'news_detail' article.pk %}" aria-hidden="true" tabindex="-1">
+                    <span class="home-news-image editorial-project"></span>
+                    <span class="home-news-copy">
+                        <time>{{ article.created_at|date:'d.m.Y' }}</time>
+                        <strong>{{ article.title }}</strong>
+                        <span>{{ article.content|striptags|truncatewords:18 }}</span>
+                        <b data-t="newsRead">Read more</b>
+                    </span>
+                </a>
+            {% empty %}
+                <p class="news-empty" data-t="newsEmpty">&#1054;&#1087;&#1091;&#1073;&#1083;&#1080;&#1082;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1093; &#1085;&#1086;&#1074;&#1086;&#1089;&#1090;&#1077;&#1081; &#1087;&#1086;&#1082;&#1072; &#1085;&#1077;&#1090;.</p>
+            {% endfor %}
+        </div>
+    </section>
     <section class="cluster-overview section-wrap" id="cluster">
         <div class="section-label"><span>ОБРАЗОВАТЕЛЬНО-ПРОИЗВОДСТВЕННЫЙ КЛАСТЕР</span><span class="label-line"></span></div>
         <div class="cluster-overview-grid">
@@ -145,39 +197,6 @@
                     </b>
                 </span>
             </a>
-        </div>
-    </section>
-    <section class="mission section-wrap">
-        <div class="section-label">
-            <span data-t="missionTag">
-                НАША МИССИЯ
-            </span>
-            <span class="label-line">
-            </span>
-        </div>
-        <div class="mission-grid">
-            <h2 data-t="mission">
-                Создаём среду, в которой образование становится точкой роста для всего региона.
-            </h2>
-            <div class="mission-aside">
-                <p data-t="missionText">
-                    Фонд развивает современную образовательную и производственную инфраструктуру, поддерживает навыки будущего и соединяет студентов, учебные заведения и бизнес.
-                </p>
-                <a class="under-link" href="{% url 'about' %}">
-                    <span data-t="missionLink">
-                        Как работает фонд
-                    </span>
-                    ↗
-                </a>
-                <div class="mission-number">
-                    <b>
-                        01
-                    </b>
-                    <span data-t="years">
-                        общая цель
-                    </span>
-                </div>
-            </div>
         </div>
     </section>
     <section class="focus section-wrap">
@@ -310,87 +329,19 @@
             </a>
         </div>
         <div class="news-grid">
-            <article class="news-card">
-                <div class="news-art">
-                    <span>
-                        OPPORTUNITY / 01
-                    </span>
-                    <b>
-                        ✳
-                    </b>
-                </div>
-                <div class="news-meta">
-                    <span data-t="demoLabel">
-                        ДЕМО-МАТЕРИАЛ
-                    </span>
-                    <span>
-                        01
-                    </span>
-                </div>
-                <h3 data-t="news0">
-                    Как подготовиться к подаче на грант
-                </h3>
-                <a href="{% url 'grants' %}">
-                    <span data-t="read">
-                        Открыть
-                    </span>
-                    ↗
-                </a>
-            </article>
-            <article class="news-card">
-                <div class="news-art art-1">
-                    <span>
-                        INSIGHT / 02
-                    </span>
-                    <b>
-                        ⌘
-                    </b>
-                </div>
-                <div class="news-meta">
-                    <span data-t="demoLabel">
-                        ДЕМО-МАТЕРИАЛ
-                    </span>
-                    <span>
-                        02
-                    </span>
-                </div>
-                <h3 data-t="news1">
-                    Зачем образованию партнёрство с индустрией
-                </h3>
-                <a href="{% url 'news' %}">
-                    <span data-t="read">
-                        Подробнее
-                    </span>
-                    ↗
-                </a>
-            </article>
-            <article class="news-card">
-                <div class="news-art art-2">
-                    <span>
-                        PROJECT / 03
-                    </span>
-                    <b>
-                        ↗
-                    </b>
-                </div>
-                <div class="news-meta">
-                    <span data-t="demoLabel">
-                        ДЕМО-МАТЕРИАЛ
-                    </span>
-                    <span>
-                        03
-                    </span>
-                </div>
-                <h3 data-t="news2">
-                    Новые пространства для обучения и практики
-                </h3>
-                <a href="{% url 'projects' %}">
-                    <span data-t="read">
-                        Подробнее
-                    </span>
-                    ↗
-                </a>
-            </article>
+            {% for article in latest_news %}
+                <article class="news-card">
+                    <div class="news-art">
+                        <span>{{ article.created_at|date:'d.m.Y' }}</span><b>&#8599;</b>
+                    </div>
+                    <div class="news-meta"><span data-t="navNews">News</span><span>{{ forloop.counter|stringformat:'02d' }}</span></div>
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.content|striptags|truncatewords:20 }}</p>
+                    <a href="{% url 'news_detail' article.pk %}"><span data-t="newsRead">Read more</span> &#8599;</a>
+                </article>
+            {% empty %}
+                <p class="news-empty" data-t="newsEmpty">&#1054;&#1087;&#1091;&#1073;&#1083;&#1080;&#1082;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1093; &#1085;&#1086;&#1074;&#1086;&#1089;&#1090;&#1077;&#1081; &#1087;&#1086;&#1082;&#1072; &#1085;&#1077;&#1090;.</p>
+            {% endfor %}
         </div>
     </section>
     <section class="photo-story">

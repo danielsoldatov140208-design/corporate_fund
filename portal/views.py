@@ -1,4 +1,4 @@
-﻿from django.shortcuts import render
+﻿from django.shortcuts import get_object_or_404, render
 from django.http import JsonResponse
 from portal.models import News
 
@@ -6,6 +6,7 @@ PAGES = {
     'about': 'О фонде',
     'grants': 'Гранты студентам',
     'projects': 'Проекты',
+    'courses': 'Курсы',
     'forums': 'Форумы и события',
     'partners': 'Сотрудничество',
     'trustees': 'Попечительский совет',
@@ -16,7 +17,8 @@ PAGES = {
 
 
 def home(request):
-    return render(request, 'home.html', {'page_slug': 'home'})
+    latest_news = News.objects.filter(is_published=True).order_by('-created_at')[:4]
+    return render(request, 'home.html', {'page_slug': 'home', 'latest_news': latest_news})
 
 
 def page(request, slug, extra_context=None):
@@ -43,6 +45,10 @@ def projects(request):
     return page(request, 'projects')
 
 
+def courses(request):
+    return page(request, 'courses')
+
+
 def forums(request):
     return page(request, 'forums')
 
@@ -60,8 +66,16 @@ def documents(request):
 
 
 def news(request):
-    articles = News.objects.filter(is_published=True)
+    articles = News.objects.filter(is_published=True).order_by('-created_at')
     return page(request, 'news',{"articles":articles})
+
+
+def news_detail(request, pk):
+    article = get_object_or_404(News, pk=pk, is_published=True)
+    return render(request, 'news_detail.html', {
+        'article': article,
+        'page_slug': 'news-detail',
+    })
 
 
 def contact(request):
